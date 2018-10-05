@@ -1,8 +1,8 @@
-FROM jupyter/scipy-notebook:c54800018c2c
-MAINTAINER Ian McIntyre <me@ianpmcintyre.com>
+FROM jupyter/scipy-notebook:137a295ff71b
+MAINTAINER Samuli Asmala <samuli.asmala@gmail.com>
 
 # Change me if you want to build with a different version of OpenCV
-ENV OPENCV_VERSION 3.0.0
+ENV OPENCV_VERSION 3.4.3
 
 # Change to root
 USER root
