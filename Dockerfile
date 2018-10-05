@@ -40,7 +40,7 @@ RUN echo 'Prepare OpenCV extra modules' && \
 	-D PYTHON3_PACKAGES_PATH=/opt/conda/lib/python3.6/site-packages \
 	$OPENCV_GIT_DIR && \
 	echo 'Install' && \
-	make -j4 && make install && ldconfig && \
+	make -j $(nproc) && make install && ldconfig && \
 
 # Back to the default directory
 WORKDIR /home/$NB_USER/work
