@@ -42,6 +42,9 @@ RUN echo 'Prepare OpenCV extra modules' && \
 	$OPENCV_GIT_DIR && \
 	echo 'Install' && \
 	make -j $(nproc) && make install && ldconfig && \
+	echo 'Clean installation and temporary files' && \
+	rm -rf /opt/opencv* && \
+	rm -rf /tmp/*
 
 # Back to the default directory
 WORKDIR /home/$NB_USER/work
