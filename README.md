@@ -1,6 +1,6 @@
 ## asmala/scipy-opencv-notebook Docker image
 
-All the fun of the [jupyter/scipy-notebook][jupyter-scipy-nb] Docker image, plus OpenCV 3.0.0, Python 3 bindings, and the OpenCV extra modules. Check out the [jupyter/scipy-notebook][jupyter-scipy-nb] for more information.
+All the fun of the [jupyter/scipy-notebook][jupyter-scipy-nb] Docker image, plus OpenCV 3.4.3, Python 3 bindings, and the OpenCV extra modules. Check out the [jupyter/scipy-notebook][jupyter-scipy-nb] for more information.
 
 Note: OpenCV was built with only Python 3 bindings. Therefore, Python 2 notebooks cannot `import cv2`.
 
