@@ -32,7 +32,7 @@ RUN echo 'Prepare OpenCV extra modules' && \
 	cd $OPENCV_BUILD_DIR && \
 	cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
-	-D OPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB_GIT_DIR \
+	-D OPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB_GIT_DIR/modules \
 	-D PYTHON3_EXECUTABLE=/opt/conda/bin/python3.6 \
 	-D PYTHON3_LIBRARY=/opt/conda/lib/libpython3.6m.so \
 	-D PYTHON3_INCLUDE_DIR=/opt/conda/include/python3.6m \
