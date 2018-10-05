@@ -1,4 +1,4 @@
-## mciantyre/scipy-opencv-notebook Docker image
+## asmala/scipy-opencv-notebook Docker image
 
 All the fun of the [jupyter/scipy-notebook][jupyter-scipy-nb] Docker image, plus OpenCV 3.0.0, Python 3 bindings, and the OpenCV extra modules. Check out the [jupyter/scipy-notebook][jupyter-scipy-nb] for more information.
 
@@ -7,8 +7,17 @@ Note: OpenCV was built with only Python 3 bindings. Therefore, Python 2 notebook
 ## Getting started
 
 ```
-docker pull mciantyre/scipy-opencv-notebook
-docker run -d -p 8888:8888 mciantyre/scipy-opencv-notebook
+# Download image
+docker pull asmala/scipy-opencv-notebook
+
+# Start container and remove it after its finished
+docker run -it --rm -p 8888:8888 asmala/scipy-opencv-notebook
+
+# Or if you want mount a working directory and resume later to the same container
+docker run -it --name opencv -v  "$(pwd)":/home/jovyan/work -p 8888:8888 asmala/scipy-opencv-notebook
+
+# Start the same container later
+docker start -i opencv
 ```
 
 See [jupyter/scipy-notebook][jupyter-scipy-nb] for optional `run` arguments.
