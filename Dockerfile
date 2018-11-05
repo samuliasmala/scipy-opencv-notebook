@@ -49,8 +49,9 @@ RUN echo 'Prepare OpenCV extra modules' && \
 # Back to the default directory
 WORKDIR /home/$NB_USER/work
 
-# Add custom_display_url to properly display url when launhing server
-RUN echo "c.NotebookApp.custom_display_url = 'http://127.0.0.1:8888'" >> /home/jovyan/.jupyter/jupyter_notebook_config.py
-
 # Switch back to notebook user
 USER $NB_USER
+
+RUN pip install --upgrade pip && \
+    pip install opencv-python
+
