@@ -16,6 +16,14 @@ docker run -it --rm -p 8888:8888 asmala/scipy-opencv-notebook
 # Or if you want mount a working directory and resume later to the same container
 docker run -it --name opencv -v  "$(pwd)":/home/jovyan/work -p 8888:8888 asmala/scipy-opencv-notebook
 
+# Or if you want to
+# - use your user id and group id to get proper file permissions for the files created when using container
+# - add your user id to group users to get access to some important folders within the image
+# - map host port 8006 to be used for Jupyter Notebook
+# - connect to X11 if you want to run some graphics
+# - mount working directory Jupyter Notebook's working directory
+docker run -it --name opencv --user $(id -u):$(id -g) --group-add users -v "$(pwd)":/home/jovyan/work -p 8006:8888 -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 -v /tmp/.X11-unix:/tmp/.X11-unix asmala/scipy-opencv-notebook:opencv-3.4.3 start-notebook.sh --NotebookApp.custom_display_url='http://127.0.0.1:8006' --notebook-dir=/home/jovyan/work
+
 # Start the same container later
 docker start -i opencv
 ```
