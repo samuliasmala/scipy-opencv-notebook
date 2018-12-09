@@ -53,5 +53,9 @@ WORKDIR /home/$NB_USER/work
 USER $NB_USER
 
 RUN pip install --upgrade pip && \
-    pip install opencv-python
+    conda update -n base conda && \
+    conda install -y pyflann line_profiler
 
+# Fix "undefined symbol: FT_Done_MM_Var" error
+# https://github.com/opencv/opencv/issues/12625#issuecomment-437042530
+RUN rm /opt/conda/lib/libfontconfig.s*
